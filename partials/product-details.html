@@ -1,0 +1,19 @@
+<div ng-controller= "productDetailCtrl">
+	<div class= "col-md-4">
+		<div class="font">
+			<img style= "height: 200px;" class="thumbnail" ng-src="{{product.image}}" />
+		</div>
+	</div>
+
+	<div class= "col-md-8">
+		<div class="font">
+			<h4>Name:  {{product.name}}</h4>
+			<h4>Price: {{product.price}}</h4>
+			<h4>Availability:{{product.available}}</h4>
+
+			<button type="submit" class="btn btn-primary">Buy Now</button>
+			<button type="submit" class="btn btn-info">Add to cart</button>
+		</div>
+	</div>
+
+	</div>

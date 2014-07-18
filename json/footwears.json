@@ -1,0 +1,15 @@
+[{"category" :"Loafers",
+   "details": [{"name": "Gucci", "id":"Gucci", "price" :1500, "images": ["images/gucci.jpeg"]},
+    					 {"name": "Hugs", "id":"Hugs", "price": 2000, "images": ["images/hugs.jpg"]},
+    					 {"name": "Nike", "id":"Nike", "price": 4000, "images": ["images/nike.jpg"]}]
+},
+ {"category" :"Casual Shoes",
+   "details": [{ "name": "Rush", "id":"Rush","price": 2100, "images": ["images/rush.jpg"]},
+   						 { "name": "Converse", "id":"Converse","price": 2500, "images": ["images/converse.jpg"]}]
+},
+ {"category" :"Formals",
+   "details": [{"name": "Hugo", "id":"Hugo","price" :1800, "images": ["images/hugo.jpg"]},
+    					 {"name": "Clarks", "id":"Clarks","price": 2900, "images": ["images/clarks.jpeg"]},
+    					 {"name": "Bata", "id":"Bata","price": 4500, "images": ["images/bata.jpg"]}]
+}
+]

@@ -1,0 +1,3 @@
+[{ "id": "Nike-jordan-shoes", "name": "Nike jordan shoes",  "price": 9000, "images": ["images/shoe.jpeg", "images/shoe_small.jpg"] },
+ { "id": "Armani-jeans",      "name": "Armani Jeans",       "price": 6000, "images": ["images/jeans.jpg", "images/jeans_small.jpg"]},
+ { "id": "U.S-Polo-T-Shirts", "name": "U.S Polo T-Shirts",  "price": 2000, "images": ["images/tshirt.jpeg", "images/tshirt_small.jpg"]}]
