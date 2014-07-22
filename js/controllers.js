@@ -31,3 +31,15 @@ var appControllers = angular.module('appControllers', []);
         $scope.product = res.data;
       });
   }]);
+
+  appControllers.filter('upperCase', function() {
+    //return function(item) {
+      //var result = [];
+    return function (item) {
+      return item.toUpperCase();
+    };
+      //var now= new Date();
+      //return (now.getTime() % item.id)
+    //};
+  });
+

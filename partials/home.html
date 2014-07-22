@@ -43,11 +43,13 @@
 <div class="container thumbnail" >
   <h2 >Hot Deals</h2>
   <div ng-controller="dealsCtrl">
-    <div class="col-md-4 " ng-repeat="deal in deals">
+    <div class="col-md-4 " ng-repeat="deal in deals ">
       <div class="thumbnail">
-        <p class="font">{{deal.Description}}</p>
-        <span class="label label-danger lable-inside">{{deal.name}}</span>
-        <img style="height: 200px;" class="" ng-src="{{deal.image}}" />
+        <p class="font">{{deal.Description | upperCase}}</p>
+        <a href="#/men/{{deal.id}}">
+          <span class="label label-danger lable-inside">{{deal.name | upperCase}}</span>
+          <img style="height: 200px;" class="" ng-src="{{deal.image}}" />
+        </a>
       </div>
     </div>
   </div>

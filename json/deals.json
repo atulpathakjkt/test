@@ -1,4 +1,4 @@
-[{ "name": "Henley Tshirt", "Description": "Minimum 30% off", "image":"images/dealhenley.jpeg"},
- { "name": "Perfume", "Description": "Flat 20% On Eternity", "image":"images/flipkart/perfume.jpeg"},
- { "name": "Perfume", "Description": "10% Off On David OFF", "image":"images//flipkart/perfume1.jpeg"}
+[{"id": "Henley-tshirt", "name": "Henley Tshirt", "Description": "Minimum 30% off", "image":"images/dealhenley.jpeg"},
+ {"id": "Perfume-eternity", "name": "Perfume", "Description": "Flat 20% On Eternity", "image":"images/flipkart/perfume.jpeg"},
+ {"id": "Perfume-david-off", "name": "Perfume", "Description": "10% Off On David OFF", "image":"images//flipkart/perfume1.jpeg"}
 ]

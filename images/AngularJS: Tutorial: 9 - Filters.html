@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="ng-scope" ng-app="docsApp" ng-controller="DocsController" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="Description" content="AngularJS is what HTML would have been, had it been designed for building web-apps.
+                 Declarative templates with data-binding, MVC, dependency injection and great
+                 testability story all implemented with pure client-side JavaScript!">
+  <meta name="fragment" content="!">
+  <title class="ng-binding" ng-bind-template="AngularJS: Tutorial: 9 - Filters">AngularJS: Tutorial: 9 - Filters</title>
+
+  <script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+    // dynamically add base tag as well as css and javascript files.
+    // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
+    // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
+    (function() {
+      var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
+          rUrl = /(#!\/|api|guide|misc|tutorial|error|index[^\.]*\.html).*$/,
+          baseUrl = location.href.replace(rUrl, indexFile),
+          production = location.hostname === 'docs.angularjs.org',
+          headEl = document.getElementsByTagName('head')[0],
+          sync = true;
+
+      addTag('base', {href: baseUrl});
+
+
+      addTag('link', {rel: 'stylesheet', href: 'components/bootstrap-3.1.1/css/bootstrap.min.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'components/open-sans-fontface-1.0.4/open-sans.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/prettify-theme.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/docs.css', type: 'text/css'});
+      addTag('link', {rel: 'stylesheet', href: 'css/animations.css', type: 'text/css'});
+      
+
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-resource.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-route.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-cookies.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-sanitize.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-touch.min.js' }, sync);
+      addTag('script', {src: '//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular-animate.min.js' }, sync);
+      addTag('script', {src: 'components/marked-0.3.1/lib/marked.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/bootstrap-prettify.js' }, sync);
+      addTag('script', {src: 'js/angular-bootstrap/dropdown-toggle.js' }, sync);
+      addTag('script', {src: 'components/lunr.js-0.4.2/lunr.min.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/prettify.js' }, sync);
+      addTag('script', {src: 'components/google-code-prettify-1.0.1/src/lang-css.js' }, sync);
+      addTag('script', {src: 'js/versions-data.js' }, sync);
+      addTag('script', {src: 'js/pages-data.js' }, sync);
+      addTag('script', {src: 'js/docs.js' }, sync);
+      
+
+      function addTag(name, attributes, sync) {
+        var el = document.createElement(name),
+            attrName;
+
+        for (attrName in attributes) {
+          el.setAttribute(attrName, attributes[attrName]);
+        }
+
+        sync ? document.write(outerHTML(el)) : headEl.appendChild(el);
+      }
+
+      function outerHTML(node){
+        // if IE, Chrome take the internal method otherwise build one
+        return node.outerHTML || (
+            function(n){
+                var div = document.createElement('div'), h;
+                div.appendChild(n);
+                h = div.innerHTML;
+                div = null;
+                return h;
+            })(node);
+      }
+    })();
+
+
+    // force page reload when new update is available
+    window.applicationCache && window.applicationCache.addEventListener('updateready', function(e) {
+      if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+        window.applicationCache.swapCache();
+        window.location.reload();
+      }
+    }, false);
+
+    // GA asynchronous tracker
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-8594346-3']);
+    _gaq.push(['_setDomainName', '.angularjs.org']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script><!-- base href="https://docs.angularjs.org/" --><link type="text/css" href="AngularJS:%20Tutorial:%209%20-%20Filters_files/bootstrap.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Tutorial:%209%20-%20Filters_files/open-sans.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Tutorial:%209%20-%20Filters_files/prettify-theme.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Tutorial:%209%20-%20Filters_files/docs.css" rel="stylesheet"><link type="text/css" href="AngularJS:%20Tutorial:%209%20-%20Filters_files/animations.css" rel="stylesheet"><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-resource.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-route.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-cookies.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-sanitize.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-touch.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angular-animate.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/marked.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/bootstrap.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/bootstrap-prettify.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/dropdown-toggle.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/lunr.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/prettify.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/lang-css.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/versions-data.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/pages-data.js"></script><script src="AngularJS:%20Tutorial:%209%20-%20Filters_files/docs.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <header class="header header-fixed">
+      <section class="navbar navbar-inverse docs-navbar-primary ng-scope" ng-controller="DocsSearchCtrl">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 header-branding">
+              <a class="brand navbar-brand" href="http://angularjs.org/">
+                <img class="logo" src="AngularJS:%20Tutorial:%209%20-%20Filters_files/angularjs-for-header-only.svg">
+              </a>
+              <ul class="nav navbar-nav">
+                <li class="divider-vertical"></li>
+                <li><a href="http://angularjs.org/"><i class="icon-home icon-white"></i> Home</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-eye-open icon-white"></i> Learn <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="disabled"><a href="http://angularjs.org/">Why AngularJS?</a></li>
+                    <li><a href="http://www.youtube.com/user/angularjs">Watch</a></li>
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="http://builtwith.angularjs.org/">Case Studies</a></li>
+                    <li><a href="https://github.com/angular/angular-seed">Seed App project template</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/faq">FAQ</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown active ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-book icon-white"></i> Develop <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="https://docs.angularjs.org/tutorial">Tutorial</a></li>
+                    <li><a href="https://docs.angularjs.org/guide">Developer Guide</a></li>
+                    <li><a href="https://docs.angularjs.org/api">API Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/error">Error Reference</a></li>
+                    <li><a href="https://docs.angularjs.org/misc/contribute">Contribute</a></li>
+                    <li><a href="http://code.angularjs.org/">Download</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown ng-isolate-scope">
+                  <a aria-expanded="false" aria-haspopup="true" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-comment icon-white"></i> Discuss <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="http://blog.angularjs.org/">Blog</a></li>
+                    <li><a href="http://groups.google.com/group/angular">Mailing List</a></li>
+                    <li><a href="http://webchat.freenode.net/?channels=angularjs&amp;uio=d4">Chat Room</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://twitter.com/#%21/angularjs">Twitter</a></li>
+                    <li><a href="https://plus.google.com/110323587230527980117">Google+</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/angular/angular.js">GitHub</a></li>
+                    <li><a href="https://github.com/angular/angular.js/issues">Issue Tracker</a></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+              </ul>
+            </div>
+            <form ng-class="{focus:focus}" class="navbar-search col-md-3 docs-search ng-pristine ng-valid" ng-submit="submit()">
+              <span class="glyphicon glyphicon-search search-icon"></span>
+              <input name="as_q" class="search-query ng-pristine ng-untouched ng-valid" placeholder="Click or press / to search" ng-focus="focus=true" ng-blur="focus=false" ng-change="search(q)" ng-model="q" docs-search-input="" autocomplete="off" type="text">
+            </form>
+          </div>
+        </div>
+        <div class="search-results-container ng-hide" ng-show="hasResults">
+          <div class="container">
+            <a href="" ng-click="hideResults()" class="search-close">
+              <span class="glyphicon glyphicon-remove search-close-icon"></span> Close
+            </a>
+            <div class="search-results-frame">
+              <!-- ngRepeat: (key, value) in results -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sup-header">
+        <div class="container main-grid main-header-grid">
+          <div class="grid-left">
+            <div ng-controller="DocsVersionsCtrl" class="picker version-picker ng-scope">
+              <select ng-options="v as ('v' + v.version + (v.isSnapshot ? ' (snapshot)' : '')) group by getGroupName(v) for v in docs_versions" ng-model="docs_version" ng-change="jumpToDocsVersion(docs_version)" class="docs-version-jump ng-pristine ng-untouched ng-valid"><optgroup label="Latest"><option selected="selected" value="0">v1.3.0-build.2969 (snapshot)</option><option value="17">v1.2.20</option><option value="40">v1.1.5</option><option value="46">v1.0.8</option></optgroup><optgroup label="Unstable"><option value="1">v1.3.0-beta.16</option><option value="2">v1.3.0-beta.15</option><option value="3">v1.3.0-beta.14</option><option value="4">v1.3.0-beta.13</option><option value="5">v1.3.0-beta.12</option><option value="6">v1.3.0-beta.11</option><option value="7">v1.3.0-beta.10</option><option value="8">v1.3.0-beta.9</option><option value="9">v1.3.0-beta.8</option><option value="10">v1.3.0-beta.7</option><option value="11">v1.3.0-beta.6</option><option value="12">v1.3.0-beta.5</option><option value="13">v1.3.0-beta.4</option><option value="14">v1.3.0-beta.3</option><option value="15">v1.3.0-beta.2</option><option value="16">v1.3.0-beta.1</option><option value="38">v1.2.0-rc.3</option><option value="39">v1.2.0-rc.2</option><option value="41">v1.1.4</option><option value="42">v1.1.3</option><option value="43">v1.1.2</option><option value="44">v1.1.1</option><option value="45">v1.1.0</option><option value="55">v1.0.0-rc2</option></optgroup><optgroup label="Stable"><option value="18">v1.2.19</option><option value="19">v1.2.18</option><option value="20">v1.2.17</option><option value="21">v1.2.16</option><option value="22">v1.2.15</option><option value="23">v1.2.14</option><option value="24">v1.2.13</option><option value="25">v1.2.12</option><option value="26">v1.2.11</option><option value="27">v1.2.10</option><option value="28">v1.2.9</option><option value="29">v1.2.8</option><option value="30">v1.2.7</option><option value="31">v1.2.6</option><option value="32">v1.2.5</option><option value="33">v1.2.4</option><option value="34">v1.2.3</option><option value="35">v1.2.2</option><option value="36">v1.2.1</option><option value="37">v1.2.0</option><option value="47">v1.0.7</option><option value="48">v1.0.6</option><option value="49">v1.0.5</option><option value="50">v1.0.4</option><option value="51">v1.0.3</option><option value="52">v1.0.2</option><option value="53">v1.0.1</option><option value="54">v1.0.0</option></optgroup></select>
+            </div>
+          </div>
+          <div class="grid-right">
+            <ul class="nav-breadcrumb">
+              <!-- ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/tutorial" class="ng-binding" ng-href="tutorial">Tutorial</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb --><li ng-repeat="crumb in breadcrumb" class="nav-breadcrumb-entry naked-list ng-scope">
+                <span class="divider"> /</span>
+                <a href="https://docs.angularjs.org/tutorial/step_09" class="ng-binding" ng-href="tutorial/step_09">9 - Filters</a>
+              </li><!-- end ngRepeat: crumb in breadcrumb -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section role="main" class="container main-body">
+      <div class="main-grid main-body-grid">
+        <div class="grid-left">
+          <a class="btn toc-toggle visible-xs" ng-click="toc=!toc">Show / Hide Table of Contents</a>
+          <div class="side-navigation ng-hide" ng-show="toc==true">
+            <ul class="nav-list naked-list">
+              <!-- ngRepeat: navGroup in currentArea.navGroups track by navGroup.name --><li ng-repeat="navGroup in currentArea.navGroups track by navGroup.name" class="nav-index-group ng-scope">
+                <a href="https://docs.angularjs.org/tutorial" ng-class="navClass(navGroup)" class="nav-index-group-heading ng-binding active">Tutorial</a>
+                <ul class="aside-nav">
+                  <!-- ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_00">0 - Bootstrapping</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_01">1 - Static Template</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_02">2 - Angular Templates</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_03">3 - Filtering Repeaters</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_04">4 - Two-way Data Binding</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_05">5 - XHRs &amp; Dependency Injection</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_06">6 - Templating Links &amp; Images</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_07">7 - Routing &amp; Multiple Views</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_08">8 - More Templating</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_09">9 - Filters</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_10">10 - Event Handlers</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_11">11 - REST and Custom Services</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/step_12">12 - Applying Animations</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems --><li ng-repeat="navItem in navGroup.navItems" ng-class="navClass(navItem)" class="nav-index-listing ng-scope active">
+                    <!-- ngIf: navItem.extra.href -->
+                    <a class="ng-binding" tabindex="2" ng-class="linkClass(navItem)" href="https://docs.angularjs.org/tutorial/the_end">The End</a>
+                  </li><!-- end ngRepeat: navItem in navGroup.navItems -->
+                </ul>
+              </li><!-- end ngRepeat: navGroup in currentArea.navGroups track by navGroup.name -->
+            </ul>
+            <a href="" ng-click="toc=false" class="toc-close visible-xs">
+              <span class="glyphicon glyphicon-remove toc-close-icon"></span> Close
+            </a>
+          </div>
+        </div>
+        <div class="grid-right">
+          <div class="ng-hide" id="loading" ng-show="loading">Loading...</div>
+          <!-- ngInclude: currentPage.outputPath || 'Error404.html' --><div class="ng-scope" ng-hide="loading" ng-include="currentPage.outputPath || 'Error404.html'" onload="afterPartialLoaded()" autoscroll=""><a href="http://github.com/angular/angular.js/edit/master/docs/content/tutorial/step_09.ngdoc" class="improve-docs btn btn-primary ng-scope"><i class="glyphicon glyphicon-edit">&nbsp;</i>Improve this doc</a>
+
+
+<ul class="btn-group tutorial-nav ng-scope" doc-tutorial-nav="9"><a href="https://docs.angularjs.org/tutorial/step_08"><li class="btn btn-primary"><i class="glyphicon glyphicon-step-backward"></i> Previous</li></a>
+<a href="http://angular.github.io/angular-phonecat/step-9/app"><li class="btn btn-primary"><i class="glyphicon glyphicon-play"></i> Live Demo</li></a>
+<a href="https://github.com/angular/angular-phonecat/compare/step-8...step-9"><li class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Code Diff</li></a>
+<a href="https://docs.angularjs.org/tutorial/step_10"><li class="btn btn-primary">Next <i class="glyphicon glyphicon-step-forward"></i></li></a></ul>
+
+<p class="ng-scope">In this step you will learn how to create your own custom display filter.</p>
+<ul class="ng-scope">
+<li>In the previous step, the details page displayed either "true" or "false" to indicate whether
+certain phone features were present or not. We have used a custom filter to convert those text
+strings into glyphs: ✓ for "true", and ✘ for "false". Let's see what the filter code looks like.</li>
+</ul>
+<div class="ng-scope ng-isolate-scope" doc-tutorial-reset="9"><p><a href="" ng-click="show=!show;$event.stopPropagation()">Workspace Reset Instructions  ➤</a></p>
+<div class="alert alert-info ng-hide" ng-show="show">
+  <p class="ng-binding">Reset the workspace to step 9.</p>  <p></p><pre class="ng-binding">git checkout -f step-9</pre><p></p>
+  <p>Refresh your browser or check out this step online: <a class="ng-binding" href="http://angular.github.io/angular-phonecat/step-9/app">Step 9 Live Demo</a>.</p>
+</div>
+<p>The most important changes are listed below. You can see the full diff on <a href="https://github.com/angular/angular-phonecat/compare/step-8...step-9" ng-href="https://github.com/angular/angular-phonecat/compare/step-8...step-9">GitHub</a>
+</p></div>
+
+
+<h2 class="ng-scope" id="custom-filter">Custom Filter</h2>
+<p class="ng-scope">In order to create a new filter, you are going to create a <code><span class="pln">phonecatFilters</span></code> module and register
+your custom filter with this module:</p>
+<p class="ng-scope"><strong><code><span class="pln">app</span><span class="pun">/</span><span class="pln">js</span><span class="pun">/</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">js</span></code>:</strong></p>
+<pre class="ng-scope"><code class="lang-js"><span class="pln">angular</span><span class="pun">.</span><span class="pln">module</span><span class="pun">(</span><span class="str">'phonecatFilters'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span><span class="pln">filter</span><span class="pun">(</span><span class="str">'checkmark'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> input </span><span class="pun">?</span><span class="pln"> </span><span class="str">'\u2713'</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">'\u2718'</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+<p class="ng-scope">The name of our filter is "checkmark". The <code><span class="pln">input</span></code> evaluates to either <code><span class="kwd">true</span></code> or <code><span class="kwd">false</span></code>, and we
+return one of the two unicode characters we have chosen to represent true (<code><span class="pln">\u</span><span class="lit">2713</span></code> -&gt; ✓) or false (<code><span class="pln">\u</span><span class="lit">2718</span></code> -&gt; ✘).</p>
+<p class="ng-scope">Now that our filter is ready, we need to register the <code><span class="pln">phonecatFilters</span></code> module as a dependency for
+our main <code><span class="pln">phonecatApp</span></code> module.</p>
+<p class="ng-scope"><strong><code><span class="pln">app</span><span class="pun">/</span><span class="pln">js</span><span class="pun">/</span><span class="pln">app</span><span class="pun">.</span><span class="pln">js</span></code>:</strong></p>
+<pre class="ng-scope"><code class="lang-js"><span class="pun">...</span><span class="pln">
+angular</span><span class="pun">.</span><span class="pln">module</span><span class="pun">(</span><span class="str">'phonecatApp'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'ngRoute'</span><span class="pun">,</span><span class="str">'phonecatControllers'</span><span class="pun">,</span><span class="str">'phonecatFilters'</span><span class="pun">]);</span><span class="pln">
+</span><span class="pun">...</span></code></pre>
+<h2 class="ng-scope" id="template">Template</h2>
+<p class="ng-scope">Since the filter code lives in the <code><span class="pln">app</span><span class="pun">/</span><span class="pln">js</span><span class="pun">/</span><span class="pln">filters</span><span class="pun">.</span><span class="pln">js</span></code> file, we need to include this file in our
+layout template.</p>
+<p class="ng-scope"><strong><code><span class="pln">app</span><span class="pun">/</span><span class="pln">index</span><span class="pun">.</span><span class="pln">html</span></code>:</strong></p>
+<pre class="ng-scope"><code class="lang-html"><span class="pln">...
+ </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/controllers.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+ </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/filters.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+...</span></code></pre>
+<p class="ng-scope">The syntax for using filters in Angular templates is as follows:</p>
+<pre class="ng-scope"><code><span class="pun">{{</span><span class="pln"> expression </span><span class="pun">|</span><span class="pln"> filter </span><span class="pun">}}</span></code></pre>
+<p class="ng-scope">Let's employ the filter in the phone details template:</p>
+<p class="ng-scope"><strong><code><span class="pln">app</span><span class="pun">/</span><span class="pln">partials</span><span class="pun">/</span><span class="pln">phone</span><span class="pun">-</span><span class="pln">detail</span><span class="pun">.</span><span class="pln">html</span></code>:</strong></p>
+<pre class="ng-scope"><code class="lang-html"><span class="pln">...
+    </span><span class="tag">&lt;dl&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dt&gt;</span><span class="pln">Infrared</span><span class="tag">&lt;/dt&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dd&gt;</span><span class="pln">{{phone.connectivity.infrared | checkmark}}</span><span class="tag">&lt;/dd&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dt&gt;</span><span class="pln">GPS</span><span class="tag">&lt;/dt&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dd&gt;</span><span class="pln">{{phone.connectivity.gps | checkmark}}</span><span class="tag">&lt;/dd&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/dl&gt;</span><span class="pln">
+...</span></code></pre>
+<h2 class="ng-scope" id="test">Test</h2>
+<p class="ng-scope">Filters, like any other component, should be tested and these tests are very easy to write.</p>
+<p class="ng-scope"><strong><code><span class="pln">test</span><span class="pun">/</span><span class="pln">unit</span><span class="pun">/</span><span class="pln">filtersSpec</span><span class="pun">.</span><span class="pln">js</span></code>:</strong></p>
+<pre class="ng-scope"><code class="lang-js"><span class="pln">describe</span><span class="pun">(</span><span class="str">'filter'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  beforeEach</span><span class="pun">(</span><span class="pln">module</span><span class="pun">(</span><span class="str">'phonecatFilters'</span><span class="pun">));</span><span class="pln">
+
+  describe</span><span class="pun">(</span><span class="str">'checkmark'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    it</span><span class="pun">(</span><span class="str">'should convert boolean values to unicode checkmark or cross'</span><span class="pun">,</span><span class="pln">
+        inject</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">checkmarkFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      expect</span><span class="pun">(</span><span class="pln">checkmarkFilter</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'\u2713'</span><span class="pun">);</span><span class="pln">
+      expect</span><span class="pun">(</span><span class="pln">checkmarkFilter</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">)).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'\u2718'</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}));</span><span class="pln">
+  </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></code></pre>
+<p class="ng-scope">We must call <code><span class="pln">beforeEach</span><span class="pun">(</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'phonecatFilters'</span><span class="pun">))</span></code> before any of
+our filter tests execute. This call loads our <code><span class="pln">phonecatFilters</span></code> module into the injector
+for this test run.</p>
+<p class="ng-scope">Note that we call the helper function, <code><span class="pln">inject</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">checkmarkFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">})</span></code>, to get
+access to the filter that we want to test.  See <a href="https://docs.angularjs.org/api/ngMock/function/angular.mock.inject">angular.mock.inject()</a>.</p>
+<p class="ng-scope">Notice that the suffix 'Filter' is appended to your filter name when injected.
+See the <a href="https://docs.angularjs.org/guide/filter#using-filters-in-controllers-services-and-directives">Filter Guide</a>
+section where this is outlined.</p>
+<p class="ng-scope">You should now see the following output in the Karma tab:</p>
+<pre class="ng-scope">Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)</pre>
+
+
+<h1 class="ng-scope" id="experiments">Experiments</h1>
+<ul class="ng-scope">
+<li><p>Let's experiment with some of the <a href="https://docs.angularjs.org/api/ng/filter">built-in Angular filters</a> and add the
+following bindings to <code><span class="pln">index</span><span class="pun">.</span><span class="pln">html</span></code>:</p>
+<ul>
+<li><code><span class="pun">{{</span><span class="pln"> </span><span class="str">"lower cap string"</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> uppercase </span><span class="pun">}}</span></code></li>
+<li><code><span class="pun">{{</span><span class="pln"> </span><span class="pun">{</span><span class="pln">foo</span><span class="pun">:</span><span class="pln"> </span><span class="str">"bar"</span><span class="pun">,</span><span class="pln"> baz</span><span class="pun">:</span><span class="pln"> </span><span class="lit">23</span><span class="pun">}</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> json </span><span class="pun">}}</span></code></li>
+<li><code><span class="pun">{{</span><span class="pln"> </span><span class="lit">1304375948024</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> date </span><span class="pun">}}</span></code></li>
+<li><code><span class="pun">{{</span><span class="pln"> </span><span class="lit">1304375948024</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> date</span><span class="pun">:</span><span class="str">"MM/dd/yyyy @ h:mma"</span><span class="pln"> </span><span class="pun">}}</span></code></li>
+</ul>
+</li>
+<li><p>We can also create a model with an input element, and combine it with a filtered binding. Add
+the following to index.html:</p>
+<pre><code class="lang-html"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"userInput"</span><span class="tag">&gt;</span><span class="pln"> Uppercased: {{ userInput | uppercase }}</span></code></pre>
+</li>
+</ul>
+<h1 class="ng-scope" id="summary">Summary</h1>
+<p class="ng-scope">Now that you have learned how to write and test a custom filter, go to <a href="https://docs.angularjs.org/tutorial/step_10">step 10</a> to
+learn how we can use Angular to enhance the phone details page further.</p>
+<ul class="btn-group tutorial-nav ng-scope" doc-tutorial-nav="9"><a href="https://docs.angularjs.org/tutorial/step_08"><li class="btn btn-primary"><i class="glyphicon glyphicon-step-backward"></i> Previous</li></a>
+<a href="http://angular.github.io/angular-phonecat/step-9/app"><li class="btn btn-primary"><i class="glyphicon glyphicon-play"></i> Live Demo</li></a>
+<a href="https://github.com/angular/angular-phonecat/compare/step-8...step-9"><li class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Code Diff</li></a>
+<a href="https://docs.angularjs.org/tutorial/step_10"><li class="btn btn-primary">Next <i class="glyphicon glyphicon-step-forward"></i></li></a></ul>
+
+
+</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a back-to-top="">Back to top</a></p>
+
+        <p>
+          Super-powered by Google  ©2010-2014
+          ( <a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.16" class="ng-binding" id="version" ng-href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#1.3.0-beta.16" ng-bind-template="v1.3.0-beta.16  pizza-transubstantiation">v1.3.0-beta.16  pizza-transubstantiation</a>
+          )
+        </p>
+        <p>
+          Code licensed under the
+          <a href="https://github.com/angular/angular.js/blob/master/LICENSE" target="_blank">The
+            MIT License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+</body></html>
