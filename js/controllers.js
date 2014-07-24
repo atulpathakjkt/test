@@ -36,6 +36,7 @@ var appControllers = angular.module('appControllers', []);
     //return function(item) {
       //var result = [];
     return function (item) {
+      console.log("Testing Filter");
       return item.toUpperCase();
     };
       //var now= new Date();
@@ -43,3 +44,13 @@ var appControllers = angular.module('appControllers', []);
     //};
   });
 
+  appControllers.filter('testFilter', function() {
+    return function (items) {
+    var filtered = [];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      console.log(item.name)
+    }
+    return filtered;
+    };
+  });
